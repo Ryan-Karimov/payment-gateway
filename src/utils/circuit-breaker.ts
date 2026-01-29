@@ -42,7 +42,7 @@ export function createCircuitBreaker<T>(
     );
   });
 
-  // @ts-ignore - timeout event exists but not in types
+  // @ts-expect-error - timeout event exists but not in types
   breaker.on('timeout', (latencyMs: number) => {
     logger.warn({ breaker: name, latencyMs }, 'Circuit breaker timeout');
     providerRequestDuration.observe(

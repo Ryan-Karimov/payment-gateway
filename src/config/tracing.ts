@@ -25,7 +25,7 @@ export async function initTracing(): Promise<void> {
       [SemanticResourceAttributes.SERVICE_VERSION]: '1.0.0',
       [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: config.server.nodeEnv,
     }),
-    // @ts-ignore - OpenTelemetry packages version mismatch
+    // @ts-expect-error - OpenTelemetry packages version mismatch
     spanProcessor: new BatchSpanProcessor(jaegerExporter),
     instrumentations: [
       getNodeAutoInstrumentations({
