@@ -61,7 +61,7 @@
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "@vitest/coverage-v8": "^2.0.5",
-    "eslint": "^9.8.0",
+    "eslint": "^8.57.0",
     "pino-pretty": "^11.2.2",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4",
