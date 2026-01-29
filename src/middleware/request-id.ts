@@ -31,8 +31,7 @@ export function requestIdMiddleware(fastify: import('fastify').FastifyInstance):
  * Hook to add request context
  */
 async function addRequestContext(
-  request: FastifyRequest,
-  _reply: FastifyReply
+  request: FastifyRequest
 ): Promise<void> {
   // Get or generate request ID
   const requestId =

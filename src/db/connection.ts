@@ -1,4 +1,4 @@
-import { Pool, PoolClient, QueryResult, QueryResultRow } from 'pg';
+import { PoolClient, QueryResult, QueryResultRow } from 'pg';
 import { pool } from '../config/database.js';
 
 export { pool };

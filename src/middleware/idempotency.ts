@@ -2,7 +2,6 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 import {
   idempotencyService,
   IdempotencyConflictError,
-  IdempotencyProcessingError,
 } from '../services/idempotency.service.js';
 import { logger } from '../utils/logger.js';
 

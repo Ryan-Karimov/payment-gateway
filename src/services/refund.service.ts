@@ -10,7 +10,6 @@ import {
 } from '../models/refund.js';
 import {
   getPaymentById,
-  updatePayment,
   Payment,
   PaymentStatus,
 } from '../models/payment.js';
@@ -19,7 +18,6 @@ import { getProvider } from '../providers/index.js';
 import { auditService, AuditContext } from './audit.service.js';
 import { webhookService } from './webhook.service.js';
 import { withTransaction } from '../db/connection.js';
-import { logger } from '../utils/logger.js';
 
 export interface CreateRefundInput {
   payment_id: string;

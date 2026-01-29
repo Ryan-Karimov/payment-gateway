@@ -1,4 +1,4 @@
-import { query, withTransaction } from '../db/connection.js';
+import { query } from '../db/connection.js';
 import { v4 as uuidv4 } from 'uuid';
 
 export type PaymentStatus =

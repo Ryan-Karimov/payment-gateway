@@ -5,7 +5,6 @@ import {
   RefundRequest,
   RefundResponse,
   WebhookEvent,
-  ProviderError,
 } from './base.provider.js';
 import { generateHmacSignature, verifyHmacSignature } from '../utils/crypto.js';
 import { v4 as uuidv4 } from 'uuid';

@@ -1,7 +1,7 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { query } from '../db/connection.js';
 import { logger } from '../utils/logger.js';
-import { hashApiKey, verifyApiKey } from '../utils/crypto.js';
+import { hashApiKey } from '../utils/crypto.js';
 
 export interface ApiKeyInfo {
   id: string;

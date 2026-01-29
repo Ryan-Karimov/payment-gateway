@@ -19,7 +19,7 @@ import { paymentRoutes } from './routes/payments.js';
 import { refundRoutes } from './routes/refunds.js';
 import { webhookRoutes } from './routes/webhooks.js';
 import { errorHandler } from './middleware/error-handler.js';
-import { requestIdMiddleware, getRequestContext } from './middleware/request-id.js';
+import { requestIdMiddleware } from './middleware/request-id.js';
 import { startWebhookWorker } from './workers/webhook.worker.js';
 import { getAllCircuitBreakerStats } from './utils/circuit-breaker.js';
 import { logger } from './utils/logger.js';
