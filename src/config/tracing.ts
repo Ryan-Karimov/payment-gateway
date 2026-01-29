@@ -3,7 +3,7 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 import { JaegerExporter } from '@opentelemetry/exporter-jaeger';
 import { Resource } from '@opentelemetry/resources';
 import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
-import { BatchSpanProcessor, type SpanProcessor } from '@opentelemetry/sdk-trace-node';
+import { BatchSpanProcessor } from '@opentelemetry/sdk-trace-node';
 import { trace, SpanStatusCode, Span } from '@opentelemetry/api';
 import { config } from './index.js';
 
@@ -25,7 +25,8 @@ export async function initTracing(): Promise<void> {
       [SemanticResourceAttributes.SERVICE_VERSION]: '1.0.0',
       [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: config.server.nodeEnv,
     }),
-    spanProcessor: new BatchSpanProcessor(jaegerExporter) as SpanProcessor,
+    // @ts-ignore - OpenTelemetry packages version mismatch
+    spanProcessor: new BatchSpanProcessor(jaegerExporter),
     instrumentations: [
       getNodeAutoInstrumentations({
         '@opentelemetry/instrumentation-fs': {
