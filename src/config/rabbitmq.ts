@@ -1,8 +1,8 @@
-import amqplib, { Connection, Channel } from 'amqplib';
+import amqplib, { type Channel, type ChannelModel } from 'amqplib';
 import { config } from './index.js';
 import { logger } from '../utils/logger.js';
 
-let connection: Connection | null = null;
+let connection: ChannelModel | null = null;
 let channel: Channel | null = null;
 
 export const QUEUES = {
@@ -22,6 +22,10 @@ export async function connectRabbitMQ(): Promise<Channel> {
   try {
     connection = await amqplib.connect(config.rabbitmq.url);
     channel = await connection.createChannel();
+
+    if (!channel) {
+      throw new Error('Failed to create RabbitMQ channel');
+    }
 
     // Set up queues
     await channel.assertQueue(QUEUES.WEBHOOK_EVENTS, {

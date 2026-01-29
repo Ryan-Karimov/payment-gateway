@@ -34,7 +34,7 @@ export function createCircuitBreaker<T>(
   });
 
   // Event handlers
-  breaker.on('success', (result, latencyMs) => {
+  breaker.on('success', (result: unknown, latencyMs: number) => {
     logger.debug({ breaker: name, latencyMs }, 'Circuit breaker success');
     providerRequestDuration.observe(
       { provider: name, operation: 'call', status: 'success' },
@@ -42,7 +42,7 @@ export function createCircuitBreaker<T>(
     );
   });
 
-  breaker.on('timeout', (latencyMs) => {
+  breaker.on('timeout', (latencyMs: number) => {
     logger.warn({ breaker: name, latencyMs }, 'Circuit breaker timeout');
     providerRequestDuration.observe(
       { provider: name, operation: 'call', status: 'timeout' },
@@ -66,7 +66,7 @@ export function createCircuitBreaker<T>(
     logger.info({ breaker: name }, 'Circuit breaker closed');
   });
 
-  breaker.on('fallback', (result) => {
+  breaker.on('fallback', (result: unknown) => {
     logger.info({ breaker: name, result }, 'Circuit breaker fallback');
   });
 

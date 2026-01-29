@@ -30,9 +30,6 @@ export async function webhookRoutes(fastify: FastifyInstance): Promise<void> {
     '/:provider',
     {
       schema: paymentSchemas.providerWebhook,
-      config: {
-        rawBody: true,
-      },
     },
     async (request, reply) => {
       const { provider: providerName } = request.params;

@@ -3,13 +3,11 @@ import {
   getPaymentById,
   getPaymentsByMerchant,
   updatePayment,
-  getPaymentForUpdate,
   Payment,
-  CreatePaymentInput,
   PaymentStatus,
 } from '../models/payment.js';
 import { createTransaction } from '../models/transaction.js';
-import { getProvider, getSupportedProviders, ProviderError } from '../providers/index.js';
+import { getProvider, getSupportedProviders } from '../providers/index.js';
 import { createSaga, SagaOrchestrator } from './saga.service.js';
 import { auditService, AuditContext } from './audit.service.js';
 import { webhookService } from './webhook.service.js';
@@ -34,7 +32,7 @@ export interface ProcessPaymentResult {
   error?: string;
 }
 
-interface PaymentSagaContext {
+interface PaymentSagaContext extends Record<string, unknown> {
   input: ProcessPaymentInput;
   payment?: Payment;
   providerResponse?: Record<string, unknown>;

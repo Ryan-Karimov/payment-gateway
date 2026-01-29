@@ -1,4 +1,7 @@
-import Decimal from 'decimal.js';
+import DecimalJS from 'decimal.js';
+
+type Decimal = DecimalJS.default;
+const Decimal = DecimalJS.default;
 
 // Configure Decimal.js for financial calculations
 Decimal.set({
