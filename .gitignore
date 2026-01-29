@@ -1,0 +1,65 @@
+# Зависимости
+node_modules/
+
+# Сборка
+dist/
+build/
+*.tsbuildinfo
+
+# Переменные окружения
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-*
+
+# ОС
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Логи
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Тестирование
+coverage/
+.nyc_output/
+*.lcov
+
+# Docker volumes (локальная разработка)
+postgres_data/
+redis_data/
+rabbitmq_data/
+prometheus_data/
+grafana_data/
+
+# Временные файлы
+*.tmp
+*.temp
+.cache/
+tmp/
+
+# Секреты
+*.pem
+*.key
+secrets/
+credentials.json
+
+# Результаты нагрузочных тестов
+k6-results/
+*.har
+
+# Бэкапы редакторов
+*~
+\#*\#

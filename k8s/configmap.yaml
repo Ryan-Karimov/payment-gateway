@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-gateway-config
+  namespace: payment-gateway
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  HOST: "0.0.0.0"
+  LOG_LEVEL: "info"
+  DB_HOST: "postgres-service"
+  DB_PORT: "5432"
+  DB_NAME: "payment_gateway"
+  DB_POOL_SIZE: "20"
+  DB_SSL: "true"
+  REDIS_HOST: "redis-service"
+  REDIS_PORT: "6379"
+  RABBITMQ_HOST: "rabbitmq-service"
+  RABBITMQ_PORT: "5672"
+  TRACING_ENABLED: "true"
+  JAEGER_ENDPOINT: "http://jaeger-collector:14268/api/traces"
+  IDEMPOTENCY_TTL_SECONDS: "86400"
+  WEBHOOK_MAX_RETRIES: "5"
+  CIRCUIT_BREAKER_TIMEOUT: "10000"
+  CIRCUIT_BREAKER_ERROR_THRESHOLD: "50"
+  CIRCUIT_BREAKER_RESET_TIMEOUT: "30000"
